@@ -12,6 +12,9 @@ public class RubyController : MonoBehaviour
 
     public AudioClip throwSound;
     public AudioClip hitSound;
+    public ParticleSystem DamagedEffect;
+    public ParticleSystem HealthEffect;
+    
 
     public int health { get { return currentHealth; } }
     int currentHealth;
@@ -102,8 +105,13 @@ public class RubyController : MonoBehaviour
 
             isInvincible = true;
             invincibleTimer = timeInvincible;
-            animator.SetTrigger("Hit");
+
             PlaySound(hitSound);
+            Instantiate(DamagedEffect, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(HealthEffect, transform.position + Vector3.up * 0.5f, Quaternion.identity);
         }
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -128,4 +136,3 @@ public class RubyController : MonoBehaviour
         audioSource.PlayOneShot(clip);
     }
 }
-
