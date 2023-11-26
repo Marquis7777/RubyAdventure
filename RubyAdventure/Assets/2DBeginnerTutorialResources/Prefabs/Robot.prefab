@@ -173,7 +173,7 @@ MonoBehaviour:
   speed: 3
   vertical: 0
   changeTime: 2
-  smokeEffect: {fileID: 4355272755570250292, guid: 62f867f5f3a6fb644b6be3580f023c51, type: 3}
+  smokeEffect: {fileID: 3921849242702861188}
 --- !u!82 &728523647690142482
 AudioSource:
   m_ObjectHideFlags: 0
@@ -335,6 +335,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62f867f5f3a6fb644b6be3580f023c51, type: 3}
+--- !u!198 &3921849242702861188 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4355272755570250292, guid: 62f867f5f3a6fb644b6be3580f023c51, type: 3}
+  m_PrefabInstance: {fileID: 728523646536237488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5095443149266868510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5524398221385537710, guid: 62f867f5f3a6fb644b6be3580f023c51, type: 3}

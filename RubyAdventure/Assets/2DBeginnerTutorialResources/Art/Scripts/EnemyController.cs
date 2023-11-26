@@ -86,6 +86,9 @@ public class EnemyController : MonoBehaviour
         //optional if you added the fixed animation
         animator.SetTrigger("Fixed");
 
+        // Update UI
+        UIHealthBar.instance.AddFixed(); 
+
         smokeEffect.Stop();
     }
 }
