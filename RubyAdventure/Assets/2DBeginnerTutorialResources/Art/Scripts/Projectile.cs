@@ -38,10 +38,10 @@ public class Projectile : MonoBehaviour
             b.Die();
         }
 
-        BossScript b = other.collider.GetComponent<BossScript>();
-        if (b != null)
+        BossScript d = other.collider.GetComponent<BossScript>();
+        if (d != null)
         {
-            b.Death();
+            d.Death();
         }
 
         SlimeScriptPart2 s = other.collider.GetComponent<SlimeScriptPart2>();

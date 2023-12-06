@@ -19,6 +19,8 @@ using UnityEngine;
     public GameObject losemusic;
     public GameObject BackgroundMusic;
 
+    public bool SpeedBoost;
+
     public AudioClip throwSound;
     public AudioClip hitSound;
     
@@ -168,10 +170,6 @@ using UnityEngine;
         
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
 
-        public void ChangeSpeed(int amount)
-        {
-            speed = maxSpeed;
-        }
     }
     
     void Launch()
