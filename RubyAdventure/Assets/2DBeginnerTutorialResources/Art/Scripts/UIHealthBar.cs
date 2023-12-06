@@ -9,6 +9,8 @@ public class UIHealthBar : MonoBehaviour
     public Text scoreText;
 
     public GameObject winTextObject;
+    public GameObject WinMusic;
+    public GameObject BackgroundMusic; 
 
     int score = 0;
 
@@ -19,12 +21,15 @@ public class UIHealthBar : MonoBehaviour
     {
         instance = this;
     }
-    
+
+    [System.Obsolete]
     void Update()
     {
      if (score == 4)
             {
                 winTextObject.SetActive(true);
+                WinMusic.SetActive(true);
+                Destroy(BackgroundMusic);
             }
 
              //If game is won
@@ -51,6 +56,7 @@ public class UIHealthBar : MonoBehaviour
         originalSize = mask.rectTransform.rect.width;
         scoreText.text = score.ToString() + " :FIXED ROBOTS";
         winTextObject.SetActive(false);
+        WinMusic.SetActive(false);
     }
 
     public void SetValue(float value)

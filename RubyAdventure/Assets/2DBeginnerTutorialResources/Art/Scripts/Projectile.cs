@@ -29,7 +29,13 @@ public class Projectile : MonoBehaviour
         EnemyController e = other.collider.GetComponent<EnemyController>();
         if (e != null)
         {
-            e.Fix();
+            e.Fix(); 
+        }
+
+        SlimeScriptPart2 s = other.collider.GetComponent<SlimeScriptPart2>();
+        if (s != null)
+        {
+            s.SlimeDeath();
         }
 
         Destroy(gameObject);

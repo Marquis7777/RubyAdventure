@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        //remember ! inverse the test, so if broken is true !broken will be false and return won’t be executed.
+        //remember ! inverse the test, so if broken is true !broken will be false and return wonâ€™t be executed.
         if (!broken)
         {
             return;
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //remember ! inverse the test, so if broken is true !broken will be false and return won’t be executed.
+        //remember ! inverse the test, so if broken is true !broken will be false and return wonâ€™t be executed.
         if (!broken)
         {
             return;
@@ -87,7 +87,7 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("Fixed");
 
         // Update UI
-        UIHealthBar.instance.AddFixed(); 
+        UIHealthBar.instance.AddFixed();
 
         smokeEffect.Stop();
     }

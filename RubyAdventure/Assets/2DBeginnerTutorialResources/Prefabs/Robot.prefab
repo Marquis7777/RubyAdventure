@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 728523647690142480}
   - component: {fileID: 728523647690142479}
   - component: {fileID: 728523647690142478}
-  - component: {fileID: 728523647690142477}
   - component: {fileID: 728523647690142482}
+  - component: {fileID: 7770115342409500066}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Untagged
@@ -158,22 +158,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &728523647690142477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728523646819695728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75051870469f715418f697496a60d43b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  vertical: 0
-  changeTime: 2
-  smokeEffect: {fileID: 3921849242702861188}
 --- !u!82 &728523647690142482
 AudioSource:
   m_ObjectHideFlags: 0
@@ -270,6 +254,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7770115342409500066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728523646819695728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae60cc110e13e54ea8b3d4b962757b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  vertical: 1
+  changeTime: 2
+  smokeEffect: {fileID: 3921849242702861188}
 --- !u!1001 &728523646536237488
 PrefabInstance:
   m_ObjectHideFlags: 0

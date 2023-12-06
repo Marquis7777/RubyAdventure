@@ -10,6 +10,8 @@ using UnityEngine;
     
     public GameObject projectilePrefab;
     public GameObject loseTextObject;
+    public GameObject losemusic;
+    public GameObject BackgroundMusic;
 
     public AudioClip throwSound;
     public AudioClip hitSound;
@@ -38,6 +40,7 @@ using UnityEngine;
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         loseTextObject.SetActive(false);
+        losemusic.SetActive(false);
         
         currentHealth = maxHealth;
 
@@ -45,6 +48,7 @@ using UnityEngine;
     }
 
     // Update is called once per frame
+    [System.Obsolete]
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
@@ -54,9 +58,12 @@ using UnityEngine;
             {
                 loseTextObject.SetActive(true);
                 rigidbody2d.simulated = false;
-            }
+                losemusic.SetActive(true);
+                Destroy(BackgroundMusic);
 
-         //If game is over
+        }
+
+        //If game is over
         if (loseTextObject)
         {
             //If R is hit, restart the current scene
