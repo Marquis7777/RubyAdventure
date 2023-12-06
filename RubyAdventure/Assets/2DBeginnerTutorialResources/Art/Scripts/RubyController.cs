@@ -7,7 +7,11 @@ public class RubyController : MonoBehaviour
     public float speed = 3.0f;
     
     public int maxHealth = 5;
-    
+
+    public int maxSpeed = 6;
+
+    float changeTime = 5.0f;
+
     public GameObject projectilePrefab;
     public GameObject loseTextObject;
     public GameObject Explosion;
@@ -19,7 +23,7 @@ public class RubyController : MonoBehaviour
     public GameObject losemusic;
     public GameObject BackgroundMusic;
 
-    public bool SpeedBoost;
+    public bool SpeedBoost = false;
 
     public AudioClip throwSound;
     public AudioClip hitSound;
@@ -53,6 +57,7 @@ public class RubyController : MonoBehaviour
         JambiSound.SetActive(false);
         Drinking.SetActive(false);
         currentHealth = maxHealth;
+        losemusic.SetActive(false);
         //currentSpeed = Speed;
         audioSource = GetComponent<AudioSource>();
 
@@ -141,6 +146,15 @@ public class RubyController : MonoBehaviour
                 }
             }
         }
+
+        if (SpeedBoost)
+        {
+            changeTime -= Time.deltaTime;
+        }
+        if (changeTime <= 0)
+        {
+            SpeedBoost = false;
+        }
     }
     
     void FixedUpdate()
@@ -148,6 +162,16 @@ public class RubyController : MonoBehaviour
         Vector2 position = rigidbody2d.position;
         position.x = position.x + speed * horizontal * Time.deltaTime;
         position.y = position.y + speed * vertical * Time.deltaTime;
+
+        if (SpeedBoost)
+        {
+            speed = 10f;
+            Drinking.SetActive(true);
+        }
+        else
+        {
+            speed = 3f;
+        }
 
         rigidbody2d.MovePosition(position);
     }
@@ -177,7 +201,13 @@ public class RubyController : MonoBehaviour
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
 
     }
-    
+
+    public void ChangeSpeed(int amount)
+    {
+        speed = maxSpeed;
+    }
+
+
     void Launch()
     {
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);

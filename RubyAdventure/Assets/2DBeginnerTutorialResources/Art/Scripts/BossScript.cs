@@ -10,17 +10,22 @@ public class BossScript : MonoBehaviour
     public float moveSpeed = 1f;
     public GameObject playerposition;
 
+    public AudioClip RobotSound;
+
     Rigidbody2D rigidbody2D;
 
     bool broken = true;
 
     Animator animator;
 
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -69,11 +74,17 @@ public class BossScript : MonoBehaviour
         rb.simulated = false;
         //optional if you added the fixed animation
         animator.SetTrigger("DeathBot");
+        PlaySound(RobotSound);
 
     }
 
     void moveCharacter(Vector2 direction)
     {
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

@@ -9,6 +9,8 @@ public class kittyscript : MonoBehaviour
     float changeTime = 0.0f;
     float walkTime = 3.0f;
 
+    public GameObject Explosion;
+
     public AudioClip catSound;
 
     Rigidbody2D rigidbody2D;
@@ -97,15 +99,14 @@ public class kittyscript : MonoBehaviour
     }
 
     //Public because we want to call it from elsewhere like the projectile script
-    public void Fix()
+    public void Murder()
     {
         broken = false;
         rigidbody2D.simulated = false;
         //optional if you added the fixed animation
-        animator.SetTrigger("Fixed");
+        Instantiate(Explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
 
-        // Update UI
-        UIHealthBar.instance.AddFixed(); 
     }
 
     public void PlaySound(AudioClip clip)

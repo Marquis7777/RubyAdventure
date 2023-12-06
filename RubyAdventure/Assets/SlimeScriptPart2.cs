@@ -9,6 +9,7 @@ public class SlimeScriptPart2 : MonoBehaviour
     private Vector2 movement;
     public float moveSpeed = 1f;
     public GameObject playerposition;
+    public GameObject Explosion;
 
     Rigidbody2D rigidbody2D;
 
@@ -68,7 +69,8 @@ public class SlimeScriptPart2 : MonoBehaviour
         broken = false;
         rb.simulated = false;
         //optional if you added the fixed animation
-        animator.SetTrigger("BatDie");
+        Instantiate(Explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
 
     }
 

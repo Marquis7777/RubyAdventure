@@ -44,6 +44,12 @@ public class Projectile : MonoBehaviour
             d.Death();
         }
 
+        kittyscript k = other.collider.GetComponent<kittyscript>();
+        if (k != null)
+        {
+            k.Murder();
+        }
+
         SlimeScriptPart2 s = other.collider.GetComponent<SlimeScriptPart2>();
         if (s != null)
         {
