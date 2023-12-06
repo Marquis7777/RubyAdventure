@@ -7,6 +7,7 @@ public class kittyscript : MonoBehaviour
     public float speed;
     public bool vertical;
     float changeTime = 0.0f;
+    float walkTime = 3.0f;
 
     public AudioClip catSound;
 
@@ -31,6 +32,7 @@ public class kittyscript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         vignette.SetActive(false);
         changeTime = 0.0f;
+        timer = walkTime;
     }
 
     void Update()
@@ -44,6 +46,13 @@ public class kittyscript : MonoBehaviour
     {
         vignette.SetActive(false);
     }
+    timer -= Time.deltaTime;
+
+        if (timer < 0)
+        {
+            direction = -direction;
+            timer = walkTime;
+        }
     
     }
 

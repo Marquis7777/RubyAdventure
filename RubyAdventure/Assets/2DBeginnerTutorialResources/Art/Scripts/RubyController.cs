@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-﻿public class RubyController : MonoBehaviour
+public class RubyController : MonoBehaviour
 {
     public float speed = 3.0f;
     
@@ -132,6 +132,12 @@ using UnityEngine;
                 {
                     character.DisplayDialog();
                     JambiSound.SetActive(true);
+                }
+                doggycontroller doggy = hit.collider.GetComponent<doggycontroller>();
+                if (doggy != null)
+                {
+                    doggy.DisplayDialog();
+                    dogsound.SetActive(true);
                 }
             }
         }
